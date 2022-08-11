@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  font-family: "Bitter", sans-serif;
+  @apply text-nero;
+}
+
+h1 {
+  font-family: "Bitter", sans-serif;
+  @apply text-[62px] md:text-[80px] leading-[90px] md:leading-[110px] font-semibold;
+}
+
+h2 {
+  font-family: "Bitter", sans-serif;
+  @apply text-[32px] md:text-[42px] leading-[60px] md:leading-[110px] font-medium;
+}
+
+h3 {
+  font-family: "Bitter", sans-serif;
+  @apply text-[26px] leading-[31px] font-normal;
+}
+
+h4 {
+  font-family: "Open Sans", sans-serif;
+  @apply text-[18px] leading-[24px] font-semibold;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  @apply text-[18px] leading-[24px] font-normal;
+}
+
+.font-bitter {
+  font-family: "Bitter", sans-serif;
+}
+
+.font-open-sans {
+  font-family: "Open Sans", sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.roles-shadow {
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
+}

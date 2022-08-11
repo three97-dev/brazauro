@@ -1,0 +1,22 @@
+.title {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+@media screen and (min-width: 1024px) {
+  .title {
+    font-size: 36px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .title {
+    line-height: 58px;
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  .title {
+    font-size: 48px;
+  }
+}
