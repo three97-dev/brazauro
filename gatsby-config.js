@@ -89,9 +89,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        printRejected: false,
-        develop: false,
+        printRejected: true,
+        develop: true,
         tailwind: true,
+        purgeCSSOptions: {
+          safelist: [/Dropdown/, "is-open", "is-selected", /slick/], // Don't remove this selectors
+        }
       },
     },
     {

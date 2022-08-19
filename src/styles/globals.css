@@ -13,12 +13,12 @@ body {
 
 h1 {
   font-family: "Bitter", sans-serif;
-  @apply text-[62px] md:text-[80px] leading-[90px] md:leading-[110px] font-semibold;
+  @apply text-[36px] md:text-[80px] leading-[50px] md:leading-[110px] font-semibold;
 }
 
 h2 {
   font-family: "Bitter", sans-serif;
-  @apply text-[32px] md:text-[42px] leading-[60px] md:leading-[110px] font-medium;
+  @apply text-[28px] md:text-[42px] leading-[38px] md:leading-[50px] font-medium;
 }
 
 h3 {

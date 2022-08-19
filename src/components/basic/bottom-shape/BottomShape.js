@@ -1,8 +1,8 @@
 import React from "react";
 
-const BottomShape = () => {
+const BottomShape = ({className}) => {
   return (
-    <svg className="w-full absolute bottom-0 left-0" viewBox="0 0 1439 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className={`w-full ${className}`} viewBox="0 0 1439 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

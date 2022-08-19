@@ -13,7 +13,7 @@ const ProjectPage = ({ data }) => {
   
   return (
     <Layout>
-      <Hero title={t("Project Hero Title")} />
+      <Hero title={t("The Project")} />
       <Info
         projectData={projectData}
         aboutTitle={projectData.aboutTitle}

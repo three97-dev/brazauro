@@ -13,7 +13,7 @@ const HomeHero = () => {
           className="!absolute w-full h-full object-cover -z-10"
         />
         <h1>{t("Brazauro Mineral Resources")}</h1>
-        <h2>{t("Mining and Sustainability.")}</h2>
+        <h2 className="text-[18px] md:text-[24px] leading-[29px] font-bold mt-6 md:mt-0">{t("Mining and Sustainability.")}</h2>
       </div>
       <div className="w-full h-6 bg-gold"></div>
     </div>

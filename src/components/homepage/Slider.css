@@ -1,0 +1,42 @@
+.news-slider .slick-list {
+  width: 100% !important;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  overflow: hidden;
+}
+
+.news-slider .slick-track {
+  display: flex !important;
+}
+
+.news-slider .slick-slide {
+  margin-left: 32px !important;
+  margin-right: 32px !important;
+  background-color: #ffffff !important;
+}
+
+.news-slider .slick-arrow {
+  display: none !important;
+}
+
+.dots-list {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 25px;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.dot-item {
+  background-color: #fff2f2;
+  cursor: pointer;
+  border-radius: 100%;
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.dots-list .slick-active .dot-item {
+  background-color: #9e8470 !important;
+}
