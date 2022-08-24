@@ -86,7 +86,7 @@ const Header = () => {
               {languages.map((lng) => (
                 <li
                   className={`first:mr-4 font-medium ${
-                    language === "es"
+                    language === "pt"
                       ? "last:text-dark-gold first:text-dark-gray"
                       : "first:text-dark-gold last:text-dark-gray"
                   }`}

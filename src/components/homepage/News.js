@@ -21,7 +21,7 @@ const NewsTile = ({ heading, image, description, link, className }) => {
           <RRenderer data={description} />
         </div>
         <Link to={link}>
-          <div className="mt-10 text-lg font-bold text-gray-gold underline">Read More</div>
+          <div className="mt-10 text-lg font-bold text-gray-gold underline">{t("Read More")}</div>
         </Link>
       </div>
     </div>
