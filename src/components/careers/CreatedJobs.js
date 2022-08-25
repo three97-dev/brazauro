@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
-const CreatedJobs = () => {
+const CreatedJobs = ({ jobsCreatedDuringConstruction, jobsCreatedDuringOperation }) => {
   const { t } = useTranslation();
 
   return (
@@ -13,12 +13,12 @@ const CreatedJobs = () => {
         <div className="mb-3 text-dark-gray font-inter">
           <span className="text-base md:text-lg font-semibold">{t("Jobs created during construction")}</span>
           <br />
-          <span className="text-4xl md:text-6xl font-bold">1200+</span>
+          <span className="text-4xl md:text-6xl font-bold">{`${jobsCreatedDuringConstruction}+`}</span>
         </div>
         <div className="text-dark-gray font-inter">
           <span className="text-base md:text-lg font-semibold">{t("Jobs created during operation")}</span>
           <br />
-          <span className="text-4xl md:text-6xl font-bold">600+</span>
+          <span className="text-4xl md:text-6xl font-bold">{`${jobsCreatedDuringOperation}+`}</span>
         </div>
       </div>
     </div>

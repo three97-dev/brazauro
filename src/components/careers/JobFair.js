@@ -5,7 +5,7 @@ import arrow from "../../assets/careers/arrow.svg";
 import background from "../../assets/careers/background.png";
 import "./JobFair.css";
 
-const JobFair = () => {
+const JobFair = ({ nextJobFairDate, nextJobFairTime, nextJobFairAddress, nextJobFairOther, nextJobFairLines }) => {
   const { t } = useTranslation();
 
   return (
@@ -18,15 +18,15 @@ const JobFair = () => {
         <div className="relative flex md:items-center md:justify-center h-full px-7 sm:px-12 md:px-0">
           <div className="hidden md:block absolute left-0 top-[15px] w-px h-[90%] bg-very-light-gray"></div>
           <div className="h-fit md:pl-12 text-[18px] leading-[22px] font-bold font-inter text-very-light-gray md:text-pink">
-            <span>{t("JUNE 24 2023")}</span>
+            <span>{nextJobFairDate}</span>
             <br />
-            <span>{t("1:00PM - 3:00PM")}</span>
+            <span>{nextJobFairTime}</span>
             <br />
-            <span>{t("123 ADDRESS, CITY, TOWN")}</span>
+            <span>{nextJobFairAddress}</span>
             <br />
-            <span>{t("OTHER")}</span>
+            <span>{nextJobFairOther}</span>
             <br />
-            <span>{t("LINES")}</span>
+            <span>{nextJobFairLines}</span>
           </div>
         </div>
         <div className="relative flex items-center self-center xl:justify-end h-full px-7 sm:px-12 md:pl-5 lg:pl-8 md:pr-5 xl:pr-16 mt-7 sm:mt-0">

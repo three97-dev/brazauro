@@ -46,7 +46,7 @@ const Roles = ({ roles }) => {
   );
 };
 
-const OurOpenRoles = ({ roles }) => {
+const OurOpenRoles = ({ roles, description }) => {
   const { t } = useTranslation();
   const itemsPerPage = 5;
   const [currentRoles, setCurrentRoles] = useState(null);
@@ -70,7 +70,7 @@ const OurOpenRoles = ({ roles }) => {
         <h2 className="leading-[36px] md:leading-[50px] md:text-center font-inter font-bold text-dark-gray mb-6 md:mb-12">
           {t("Our Open Roles")}
         </h2>
-        <p className="mb-12 leading-[22px] font-inter">{t("Lorem ipsum dolor sit amet")}</p>
+        <p className="mb-12 leading-[22px] font-inter">{description}</p>
         <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 gap-x-7 gap-y-5">
           {roles.map((role, index) => (
             <Link

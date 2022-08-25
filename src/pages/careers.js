@@ -13,17 +13,41 @@ import OurOpenRoles from "../components/careers/OurOpenRoles";
 
 const Careers = ({ data }) => {
   const { t } = useTranslation();
-  const pageData = data?.roles?.nodes;
+  const pageData = data?.allContentfulCareersPage?.nodes[0];
+  const roles = data?.roles?.nodes;
+  console.log(pageData);
 
   return (
     <Layout>
       <Hero title={t("Careers")} />
-      <CreatedJobs />
-      <Communities />
-      <EmployerOfChoice />
-      <News />
-      <JobFair />
-      <OurOpenRoles roles={pageData} />
+      <CreatedJobs
+        jobsCreatedDuringConstruction={pageData.jobsCreatedDuringConstruction}
+        jobsCreatedDuringOperation={pageData.jobsCreatedDuringOperation}
+      />
+      <Communities title={pageData.communitiesTitle} image={pageData.communitiesImage} />
+      <EmployerOfChoice
+        title={pageData.employerOfChoiceTitle}
+        description={pageData.employerOfChoiceDescription.employerOfChoiceDescription}
+      />
+      <News
+        firstNewsTitle={pageData.firstNewsTitle}
+        firstNewsDescription={pageData.firstNewsDescription.firstNewsDescription}
+        firstNewsImage={pageData.firstNewsImage}
+        secondNewsTitle={pageData.secondNewsTitle}
+        secondNewsDescription={pageData.secondNewsDescription.secondNewsDescription}
+        secondNewsImage={pageData.secondNewsImage}
+        thirdNewsTitle={pageData.thirdNewsTitle}
+        thirdNewsDescription={pageData.thirdNewsDescription.thirdNewsDescription}
+        thirdNewsImage={pageData.thirdNewsImage}
+      />
+      <JobFair
+        nextJobFairDate={pageData.nextJobFairDate}
+        nextJobFairTime={pageData.nextJobFairTime}
+        nextJobFairAddress={pageData.nextJobFairAddress}
+        nextJobFairOther={pageData.nextJobFairOther}
+        nextJobFairLines={pageData.nextJobFairLines}
+      />
+      <OurOpenRoles roles={roles} description={pageData.openRolesDescription.openRolesDescription} />
     </Layout>
   );
 };
@@ -43,6 +67,53 @@ export const query = graphql`
       nodes {
         title
         link
+      }
+    }
+    allContentfulCareersPage(filter: { node_locale: { eq: $language } }) {
+      nodes {
+        jobsCreatedDuringConstruction
+        jobsCreatedDuringOperation
+        communitiesTitle
+        communitiesImage {
+          gatsbyImageData
+          title
+        }
+        employerOfChoiceTitle
+        employerOfChoiceDescription {
+          employerOfChoiceDescription
+        }
+        firstNewsTitle
+        firstNewsDescription {
+          firstNewsDescription
+        }
+        firstNewsImage {
+          gatsbyImageData
+          title
+        }
+        secondNewsTitle
+        secondNewsDescription {
+          secondNewsDescription
+        }
+        secondNewsImage {
+          gatsbyImageData
+          title
+        }
+        thirdNewsTitle
+        thirdNewsDescription {
+          thirdNewsDescription
+        }
+        thirdNewsImage {
+          gatsbyImageData
+          title
+        }
+        nextJobFairDate
+        nextJobFairTime
+        nextJobFairAddress
+        nextJobFairOther
+        nextJobFairLines
+        openRolesDescription {
+          openRolesDescription
+        }
       }
     }
   }
