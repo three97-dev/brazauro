@@ -68,7 +68,6 @@ const Text = ({ data, config, useSupAsCode, className }) => {
 
       [INLINES.ASSET_HYPERLINK]: (node, children) => {
         const { content, data } = node;
-        console.log("children >>", children);
 
         return (
           <a

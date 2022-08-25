@@ -15,7 +15,6 @@ const Careers = ({ data }) => {
   const { t } = useTranslation();
   const pageData = data?.allContentfulCareersPage?.nodes[0];
   const roles = data?.roles?.nodes;
-  console.log(pageData);
 
   return (
     <Layout>
