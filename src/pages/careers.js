@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
@@ -10,17 +9,21 @@ import EmployerOfChoice from "../components/careers/EmployerOfChoice";
 import News from "../components/careers/News";
 import JobFair from "../components/careers/JobFair";
 import OurOpenRoles from "../components/careers/OurOpenRoles";
+import SEO from "../components/seo";
 
 const Careers = ({ data }) => {
-  const { t } = useTranslation();
-  const pageData = data?.allContentfulCareersPage?.nodes[0];
+  const pageData = data?.allContentfulPageCareers?.nodes[0];
   const roles = data?.roles?.nodes;
 
   return (
     <Layout>
-      <Hero title={t("Careers")} />
+      <SEO title={pageData.heroTitle} />
+      <Hero title={pageData.heroTitle} />
       <CreatedJobs
+        title={pageData.jobsTitle}
+        jobsCreatedDuringConstructionsTitle={pageData.jobsCreatedDuringConstructionsTitle}
         jobsCreatedDuringConstruction={pageData.jobsCreatedDuringConstruction}
+        jobsCreatedDuringOperationTitle={pageData.jobsCreatedDuringOperationTitle}
         jobsCreatedDuringOperation={pageData.jobsCreatedDuringOperation}
       />
       <Communities title={pageData.communitiesTitle} image={pageData.communitiesImage} />
@@ -40,37 +43,38 @@ const Careers = ({ data }) => {
         thirdNewsImage={pageData.thirdNewsImage}
       />
       <JobFair
+        nextJobFairTitle={pageData.nextJobFairTitle}
         nextJobFairDate={pageData.nextJobFairDate}
         nextJobFairTime={pageData.nextJobFairTime}
         nextJobFairAddress={pageData.nextJobFairAddress}
         nextJobFairOther={pageData.nextJobFairOther}
         nextJobFairLines={pageData.nextJobFairLines}
+        nextJobFairButton={pageData.nextJobFairButton}
       />
-      <OurOpenRoles roles={roles} description={pageData.openRolesDescription.openRolesDescription} />
+      <OurOpenRoles
+        roles={roles}
+        title={pageData.openRolesTitle}
+        description={pageData.openRolesDescription.openRolesDescription}
+      />
     </Layout>
   );
 };
 
 export const query = graphql`
   query CareersQuery($language: String) {
-    locales: allLocale(filter: { ns: { in: ["common", "careers"] }, language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-    roles: allContentfulOurOpenRoles(filter: { node_locale: { eq: $language } }) {
+    roles: allContentfulOurOpenRoles(filter: { node_locale: { eq: $language } }, sort: { fields: order }) {
       nodes {
         title
         link
       }
     }
-    allContentfulCareersPage(filter: { node_locale: { eq: $language } }) {
+    allContentfulPageCareers(filter: { node_locale: { eq: $language } }) {
       nodes {
+        heroTitle
+        jobsTitle
+        jobsCreatedDuringConstructionsTitle
         jobsCreatedDuringConstruction
+        jobsCreatedDuringOperationTitle
         jobsCreatedDuringOperation
         communitiesTitle
         communitiesImage {
@@ -105,11 +109,14 @@ export const query = graphql`
           gatsbyImageData
           title
         }
+        nextJobFairTitle
         nextJobFairDate
         nextJobFairTime
         nextJobFairAddress
         nextJobFairOther
         nextJobFairLines
+        nextJobFairButton
+        openRolesTitle
         openRolesDescription {
           openRolesDescription
         }

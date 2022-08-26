@@ -1,19 +1,18 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import Info from "../components/project/Info";
 import Acquisition from "../components/project/Acquisition";
+import SEO from "../components/seo";
 
 const ProjectPage = ({ data }) => {
-  const projectData = data?.allContentfulProjectPage?.nodes[0];
-  const { t } = useTranslation();
-  
+  const projectData = data?.allContentfulPageProject?.nodes[0];
   return (
     <Layout>
-      <Hero title={t("The Project")} />
+      <SEO title={projectData.heroTitle} />
+      <Hero title={projectData.heroTitle} />
       <Info
         projectData={projectData}
         aboutTitle={projectData.aboutTitle}
@@ -28,17 +27,9 @@ const ProjectPage = ({ data }) => {
 
 export const query = graphql`
   query ProjectQuery($language: String) {
-    locales: allLocale(filter: { ns: { in: ["common", "project"] }, language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-    allContentfulProjectPage(filter: { node_locale: { eq: $language } }) {
+    allContentfulPageProject(filter: { node_locale: { eq: $language } }) {
       nodes {
+        heroTitle
         aboutTitle
         aboutDescription {
           raw

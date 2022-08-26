@@ -3,7 +3,7 @@ import React from "react";
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 
-const Text = ({ data, config, useSupAsCode, className }) => {
+const Text = ({ data, config, useSupAsCode, whiteText, className }) => {
   const options = {
     renderNode: {
       [BLOCKS.HEADING_1]: (node, children) => <h1>{children}</h1>,
@@ -29,7 +29,7 @@ const Text = ({ data, config, useSupAsCode, className }) => {
       [BLOCKS.LIST_ITEM]: (node, children) => (
         <li className={(config && config.li) || "disc-bullet"}>
           <div className="flex">
-            <div className="flex-shrink-0 h-1 w-1 mr-3 mt-3 bg-gray-gold rounded-full"></div>
+            <div className={`flex-shrink-0 h-1 w-1 mr-3 mt-3 ${whiteText ? "bg-white" : "bg-gray-gold"} rounded-full`}></div>
             <div>{children}</div>
           </div>
         </li>

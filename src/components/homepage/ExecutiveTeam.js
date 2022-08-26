@@ -1,5 +1,4 @@
 import React from "react";
-import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import Image from "../basic/image/Image";
 import RRenderer from "../richtextRenderer";
@@ -31,14 +30,13 @@ const BoardOfDirectorsMember = ({ image, name, title }) => {
   );
 };
 
-const ExecutiveTeam = ({ executiveTeamData, boardOfDirectorsData }) => {
-  const { t } = useTranslation();
+const ExecutiveTeam = ({ executiveTeamTitle, executiveTeamSubtitle, boardOfDirectorsSubtitle, executiveTeamData, boardOfDirectorsData }) => {
   return (
     <div className="relative w-full pt-12 font-open-sans">
       <div className="hidden md:block w-full max-w-[1440px] mx-auto px-7 sm:px-12 lg:px-[100px]">
         <div>
-          <h2 className="text-center">{t("Team of Executives and Council of G Mining Ventures")}</h2>
-          <h4 className="mt-6 text-dark-gold text-center">{t("Executive Leadership")}</h4>
+          <h2 className="text-center">{executiveTeamTitle}</h2>
+          <h4 className="mt-6 text-dark-gold text-center">{executiveTeamSubtitle}</h4>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 mt-12">
           {executiveTeamData.map((executiveTeamMember, index) => (
@@ -53,7 +51,7 @@ const ExecutiveTeam = ({ executiveTeamData, boardOfDirectorsData }) => {
         </div>
         <div className="block">
           <hr className="mt-16 border border-dark-gold rounded-full" />
-          <h4 className="mt-12 text-dark-gold text-center">{t("Board of Directors")}</h4>
+          <h4 className="mt-12 text-dark-gold text-center">{boardOfDirectorsSubtitle}</h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-10 gap-y-12 mt-12 mb-32">
             {boardOfDirectorsData.map((boardOfDirectorsMember, index) => (
               <BoardOfDirectorsMember
@@ -68,8 +66,8 @@ const ExecutiveTeam = ({ executiveTeamData, boardOfDirectorsData }) => {
       </div>
       <div className="md:hidden">
         <div className="mx-auto px-7 sm:px-12">
-          <h2 className="text-center">{t("Team of Executives and Council of G Mining Ventures")}</h2>
-          <h4 className="mt-6 text-dark-gold text-center">{t("Executive Leadership")}</h4>
+          <h2 className="text-center">{executiveTeamTitle}</h2>
+          <h4 className="mt-6 text-dark-gold text-center">{executiveTeamSubtitle}</h4>
         </div>
         <Slider>
           {executiveTeamData.map((executiveTeamMember, index) => (
@@ -86,7 +84,7 @@ const ExecutiveTeam = ({ executiveTeamData, boardOfDirectorsData }) => {
       <hr className="md:hidden mt-12 mb-12 border-t mx-7 border-dark-gold rounded-full" />
       <div className="md:hidden">
         <div className="mx-auto px-7 sm:px-12">
-          <h4 className="mt-6 text-dark-gold text-center">{t("Board of Directors")}</h4>
+          <h4 className="mt-6 text-dark-gold text-center">{boardOfDirectorsSubtitle}</h4>
         </div>
         <Slider>
           {boardOfDirectorsData.map((boardOfDirectorsMember, index) => (

@@ -1,19 +1,18 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import Layout from "../components/Layout";
 import Seo from "../components/seo";
 
-const NotFoundPage = () => {
-  const { t } = useTranslation();
+const NotFoundPage = ({ data }) => {
+  const page404Data = data?.allContentfulPage404?.nodes[0];
   
   return (
     <Layout>
-      <Seo title={t('404: Not found')} />
+      <Seo title={page404Data.heading} />
       <div className="flex flex-col place-content-center place-items-center min-h-[calc(100vh_-_305px)]">
-        <h2>{t("NOT FOUND")}</h2>
-        <p>{t("Message")}</p>
+        <h2>{page404Data.heading}</h2>
+        <p>{page404Data.message}</p>
       </div>
     </Layout>
   );
@@ -21,13 +20,10 @@ const NotFoundPage = () => {
 
 export const query = graphql`
   query ($language: String) {
-    locales: allLocale(filter: {ns: {in: ["common", "404"]}, language: {eq: $language}}) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
+    allContentfulPage404(filter: { node_locale: { eq: $language } }) {
+      nodes {
+        heading
+        message
       }
     }
   }

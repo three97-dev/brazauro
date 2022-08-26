@@ -1,24 +1,24 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import Layout from "../components/Layout";
 import HomeHero from "../components/homepage/HomeHero";
 import News from "../components/homepage/News";
 import MainServiceContract from "../components/homepage/MainServiceContract";
 import ExecutiveTeam from "../components/homepage/ExecutiveTeam";
+import SEO from "../components/seo";
 
 const HomePage = ({ data }) => {
-  const { t } = useTranslation();
-
+  const pageData = data?.allContentfulPageHomePage?.nodes[0];
   const newsData = data?.news?.nodes;
   const executiveTeamData = data?.executiveTeam?.nodes;
   const boardOfDirectorsData = data?.boardOfDirectors?.nodes;
 
   return (
     <Layout>
-      <HomeHero />
-      <News newsData={newsData} />
+      <SEO title={pageData.heroTitle} />
+      <HomeHero title={pageData.heroTitle} subtitle={pageData.heroSubtitle} />
+      <News title={pageData.newTitle} newsData={newsData} />
       <div className="w-full">
         <div className="w-full h-6 bg-gold"></div>
         <iframe
@@ -28,12 +28,19 @@ const HomePage = ({ data }) => {
           frameborder="0"
           allowfullscreen="true"
           allow="fullscreen"
-          src={t("iFrameLink")}
+          src={pageData.iFrameLink}
         ></iframe>
       </div>
-      <MainServiceContract />
+      <MainServiceContract
+        image={pageData.miningServicesImage}
+        title={pageData.miningServicesTitle}
+        description={pageData.miningServicesDescription}
+      />
       <ExecutiveTeam
+        executiveTeamTitle={pageData.executiveTeamTitle}
+        executiveTeamSubtitle={pageData.executiveTeamSubtitle}
         executiveTeamData={executiveTeamData}
+        boardOfDirectorsSubtitle={pageData.boardOfDirectorsSubtitle}
         boardOfDirectorsData={boardOfDirectorsData}
       />
     </Layout>
@@ -42,16 +49,25 @@ const HomePage = ({ data }) => {
 
 export const query = graphql`
   query HomePageQuery($language: String!) {
-    locales: allLocale(filter: { ns: { in: ["common", "index"] }, language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
+    allContentfulPageHomePage(filter: { node_locale: { eq: $language } }) {
+      nodes {
+        heroTitle
+        heroSubtitle
+        newTitle
+        iFrameLink
+        miningServicesImage {
+          gatsbyImageData
         }
+        miningServicesTitle
+        miningServicesDescription {
+          raw
+        }
+        executiveTeamTitle
+        executiveTeamSubtitle
+        boardOfDirectorsSubtitle
       }
     }
-    news: allContentfulNews(sort: { fields: createdAt }, filter: { node_locale: { eq: $language } }) {
+    news: allContentfulHighlightCards(filter: { node_locale: { eq: $language } }, sort: { fields: order }) {
       nodes {
         heading
         title
@@ -65,7 +81,7 @@ export const query = graphql`
         }
       }
     }
-    executiveTeam: allContentfulExecutiveTeam(filter: { node_locale: { eq: $language } }) {
+    executiveTeam: allContentfulExecutiveTeam(filter: { node_locale: { eq: $language } }, sort: { fields: order }) {
       nodes {
         name
         title
@@ -78,7 +94,10 @@ export const query = graphql`
         }
       }
     }
-    boardOfDirectors: allContentfulBoardOfDirectors(filter: { node_locale: { eq: $language } }) {
+    boardOfDirectors: allContentfulBoardOfDirectors(
+      filter: { node_locale: { eq: $language } }
+      sort: { fields: order }
+    ) {
       nodes {
         name
         title

@@ -15,6 +15,10 @@
   background-color: #ffffff !important;
 }
 
+.slick-slide > div {
+  height: 100%;
+}
+
 .news-slider .slick-arrow {
   display: none !important;
 }

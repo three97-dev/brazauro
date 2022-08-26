@@ -1,19 +1,18 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import TopText from "../components/facts-and-data/TopText";
 import ProjectPathForward from "../components/facts-and-data/ProjectPathForward";
+import SEO from "../components/seo";
 
 const FactsAndData = ({ data }) => {
-  const pageData = data?.allContentfulFactsAndDataPage?.nodes[0];
-  const { t } = useTranslation();
-  
+  const pageData = data?.allContentfulPageFactsAndData?.nodes[0];
   return (
     <Layout>
-      <Hero title={t("Facts and Data Hero Title")} />
+      <SEO title={pageData.heroTitle} />
+      <Hero title={pageData.heroTitle} />
       <TopText description={pageData.topText} />
       <ProjectPathForward
         title={pageData.sectionTitle}
@@ -26,17 +25,9 @@ const FactsAndData = ({ data }) => {
 
 export const query = graphql`
   query FactsAndDataQuery($language: String) {
-    locales: allLocale(filter: { ns: { in: ["common", "facts-and-data"] }, language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-    allContentfulFactsAndDataPage(filter: { node_locale: { eq: $language } }) {
+    allContentfulPageFactsAndData(filter: { node_locale: { eq: $language } }) {
       nodes {
+        heroTitle
         topText {
           raw
         }

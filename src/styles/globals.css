@@ -33,7 +33,7 @@ h4 {
 
 p {
   font-family: "Open Sans", sans-serif;
-  @apply text-[18px] leading-[24px] font-normal;
+  @apply text-[18px] leading-[24px] font-light;
 }
 
 .font-bitter {
