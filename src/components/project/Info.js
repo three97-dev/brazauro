@@ -7,7 +7,7 @@ const Info = ({ aboutTitle, aboutDescription, historyTitle, projectHistory }) =>
     <div className="w-full lg:bg-pink">
       <div className="grid lg:grid-cols-[11fr_14fr] w-full max-w-[1440px] mx-auto">
         <div className="pt-12 md:pt-6 lg:pt-12 pb-12 lg:pb-24 px-7 sm:px-12 lg:pr-14 lg:pl-[100px] lg:bg-pink">
-          <h2>&lt;{aboutTitle}&gt;</h2>
+          <h2>{aboutTitle}</h2>
           <div className="mt-10 lg:mt-16 text-gray-gold">
             <RRenderer data={aboutDescription} config={{ p: "px-4 lg:px-0" }} />
           </div>
