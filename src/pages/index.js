@@ -70,7 +70,6 @@ export const query = graphql`
     news: allContentfulHighlightCards(filter: { node_locale: { eq: $language } }, sort: { fields: order }) {
       nodes {
         heading
-        title
         link
         description {
           raw

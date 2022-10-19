@@ -12,7 +12,7 @@ const MainServiceContract = ({ image, title, description }) => {
             <Image image={image} className="object-contain" />
           </div>
           <div className="mt-12 md:mt-0 text-white">
-            <h4>{title}</h4>
+            <h5 className="mb-5">{title}</h5>
             <RRenderer data={description} whiteText />
           </div>
         </div>

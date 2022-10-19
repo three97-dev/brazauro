@@ -18,24 +18,24 @@ const Text = ({ data, config, useSupAsCode, whiteText, className }) => {
 
       [BLOCKS.HEADING_6]: (node, children) => <h6>{children}</h6>,
 
-      [BLOCKS.PARAGRAPH]: (node, children) => <p className={`${config && config.p}`}>{children}</p>,
+      [BLOCKS.PARAGRAPH]: (node, children) => <p className={`${config && config.p} mb-4`}>{children}</p>,
 
       [BLOCKS.UL_LIST]: (node, children) => (
-        <ul className={(config && config.ul) || "my-5 ml-6 flex flex-col"}>{children}</ul>
+        <ul className={(config && config.ul) || "my-5 ml-3 flex flex-col"}>{children}</ul>
       ),
 
       [BLOCKS.OL_LIST]: (node, children) => <ol>{children}</ol>,
 
       [BLOCKS.LIST_ITEM]: (node, children) => (
-        <li className={(config && config.li) || "disc-bullet"}>
+        <li className={config && config.li}>
           <div className="flex">
             <div className={`flex-shrink-0 h-1 w-1 mr-3 mt-3 ${whiteText ? "bg-white" : "bg-gray-gold"} rounded-full`}></div>
-            <div>{children}</div>
+            <div className="mb-[-14px]">{children}</div>
           </div>
         </li>
       ),
 
-      [BLOCKS.HR]: () => <hr />,
+      [BLOCKS.HR]: () => <hr className="my-5 border-t border-dark-gold" />,
 
       [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
         return (
@@ -56,7 +56,7 @@ const Text = ({ data, config, useSupAsCode, whiteText, className }) => {
 
         return (
           <a
-            className="cursor-pointer text-blue-500 hover:underline hover:text-blue-700"
+            className="cursor-pointer underline"
             href={data.uri}
             target="_blank"
             rel="noreferrer"

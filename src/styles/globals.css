@@ -17,7 +17,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Bitter", sans-serif;
+  font-family: "Inter", sans-serif;
   @apply text-[28px] md:text-[42px] leading-[38px] md:leading-[50px] font-medium;
 }
 
@@ -27,6 +27,11 @@ h3 {
 }
 
 h4 {
+  font-family: "Inter", sans-serif;
+  @apply text-[24px] leading-[29px] font-bold;
+}
+
+h5 {
   font-family: "Open Sans", sans-serif;
   @apply text-[18px] leading-[24px] font-semibold;
 }

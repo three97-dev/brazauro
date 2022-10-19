@@ -11,7 +11,7 @@ const HomeHero = ({title, subtitle}) => {
           className="!absolute w-full h-full object-cover -z-10"
         />
         <h1>{title}</h1>
-        <h2 className="text-[18px] md:text-[24px] leading-[29px] font-bold mt-6 md:mt-0">{subtitle}</h2>
+        <h4 className="mt-6 md:mt-0">{subtitle}</h4>
       </div>
       <div className="w-full h-6 bg-gold"></div>
     </div>

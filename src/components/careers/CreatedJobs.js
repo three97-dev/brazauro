@@ -2,9 +2,9 @@ import React from "react";
 
 const CreatedJobs = ({ title, jobsCreatedDuringConstructionsTitle, jobsCreatedDuringConstruction, jobsCreatedDuringOperationTitle, jobsCreatedDuringOperation }) => {
   return (
-    <div className="grid md:grid-cols-2 w-full max-w-[1440px] mx-auto px-7 sm:px-12 lg:px-[100px] pt-12 md:pt-0 pb-12 md:pb-24">
+    <div className="grid md:grid-cols-2 w-full max-w-[1440px] mx-auto px-7 sm:px-12 lg:px-[100px] pt-16 pb-12 md:pb-24">
       <div className="flex items-center md:px-14 xl:px-32 mb-7 md:mb-0">
-        <h2 className="leading-[36px] md:leading-[50px] text-dark-gray font-inter">{title}</h2>
+        <h2 className="text-dark-gray">{title}</h2>
       </div>
       <div className="md:px-14 xl:px-32">
         <div className="mb-3 text-dark-gray font-inter">

@@ -54,7 +54,8 @@ const Careers = ({ data }) => {
       <OurOpenRoles
         roles={roles}
         title={pageData.openRolesTitle}
-        description={pageData.openRolesDescription.openRolesDescription}
+        description={pageData.openRolesDescription}
+        openRolesButtonLabel={pageData.openRolesButtonLabel}
       />
     </Layout>
   );
@@ -65,7 +66,20 @@ export const query = graphql`
     roles: allContentfulOurOpenRoles(filter: { node_locale: { eq: $language } }, sort: { fields: order }) {
       nodes {
         title
-        link
+        fields {
+          pageUrl
+        }
+        description {
+          raw
+        }
+        smallImage {
+          gatsbyImageData(width: 67, height: 67)
+          title
+        }
+        largeImage {
+          gatsbyImageData
+          title
+        }
       }
     }
     allContentfulPageCareers(filter: { node_locale: { eq: $language } }) {
@@ -118,8 +132,9 @@ export const query = graphql`
         nextJobFairButton
         openRolesTitle
         openRolesDescription {
-          openRolesDescription
+          raw
         }
+        openRolesButtonLabel
       }
     }
   }

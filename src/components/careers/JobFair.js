@@ -17,7 +17,7 @@ const JobFair = ({
     <div className="relative w-full max-w-[1440px] mx-auto md:px-12 lg:px-[100px] md:py-6 lg:py-12">
       <img className="absolute left-0 top-[29%] -z-10" src={background} alt="background" />
       <div className="grid sm:grid-cols-2 md:grid-cols-3 items-center md:gap-x-10 gap-y-6 bg-dark-gray py-12 md:py-20">
-        <h2 className="title sm:col-span-2 md:col-span-1 h-fit font-inter font-bold pr-7 md:pr-0 pl-7 sm:pl-10 lg:pl-8 xl:pl-24 text-pink">
+        <h2 className="title sm:col-span-2 md:col-span-1 h-fit font-bold pr-7 md:pr-0 pl-7 sm:pl-10 lg:pl-8 xl:pl-24 text-pink">
           {nextJobFairTitle}
         </h2>
         <div className="relative flex md:items-center md:justify-center h-full px-7 sm:px-12 md:px-0">

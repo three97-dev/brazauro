@@ -20,9 +20,9 @@ const FeasibilityTable = ({ tableTitle, tableLabels, feasibilityItems, buttonLab
 
   return (
     <div className="py-12 px-7 md:px-16 lg:px-[100px] bg-gray-gold">
-      <h3 className="max-w-[1284px] w-full md:text-center font-inter font-bold text-white mx-auto px-5 md:px-12 md:px-8 mb-8 md:mb-12">
+      <h4 className="max-w-[1284px] w-full md:text-center text-white mx-auto px-5 md:px-12 md:px-8 mb-8 md:mb-12">
         {tableTitle}
-      </h3>
+      </h4>
       <div className="max-w-[1284px] mx-auto px-5 md:px-8 pt-5 md:pt-8 bg-white rounded-[20px]">
         <div className="overflow-x-scroll lg:overflow-x-auto">
           <div className="feasibility-wrapper feasibility-grid-area font-open-sans">
