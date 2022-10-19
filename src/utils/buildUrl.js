@@ -9,5 +9,5 @@ const strToUrl = (str, fallback) => {
 };
 
 exports.buildOpenRoleUrl = (role) => {
-  return `/careers/${strToUrl(role.title, role.contentful_id)}`;
+  return `/careers/${strToUrl(`${role.title}-${role.contentful_id}`, role.contentful_id)}`;
 };
