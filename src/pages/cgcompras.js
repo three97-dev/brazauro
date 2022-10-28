@@ -9,7 +9,7 @@ import DocumentTile from "../components/documents/DocumentTile";
 
 const Documents = ({ data }) => {
   const pageData = data.allContentfulPageDocumentsPage.nodes[0];
-  const documents = data.documents.nodes;
+  const documents = data.documents.nodes[0]?.documents;
 
   const onDownloadClick = async (file) => {
     if (typeof window != "undefined") {
@@ -44,23 +44,15 @@ export const query = graphql`
         heroTitle
       }
     }
-    documents: allContentfulAsset(
-      filter: {
-        file: {
-          contentType: {
-            nin: ["image/png", "image/jpeg", "image/svg+xml", "image/webp", "image/gif"]
-          }
-        }
-        node_locale: { eq: "en" }
-      }
-      sort: { fields: updatedAt }
-    ) {
+    documents: allContentfulPageDocumentsPage(filter: { node_locale: { eq: "en" } }, sort: { fields: updatedAt }) {
       nodes {
-        title
-        file {
-          fileName
-          contentType
-          url
+        documents {
+          title
+          file {
+            fileName
+            contentType
+            url
+          }
         }
       }
     }
