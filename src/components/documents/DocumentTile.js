@@ -2,7 +2,6 @@ import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
 const DocumentTile = ({ title, file, onDownloadClick }) => {
-  console.log(file);
   return (
     <button
       onClick={() => {
