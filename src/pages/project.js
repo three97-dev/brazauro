@@ -12,7 +12,7 @@ import FeasibilityTable from "../components/project/FeasibilityTable";
 const ProjectPage = ({ data }) => {
   const projectData = data?.allContentfulPageProject?.nodes[0];
 
-  const openThankModal = async (file) => {
+  const onDownloadClick = async (file) => {
     if (typeof window != "undefined") {
       const downloadResult = await fetch(file.url);
       const blob = await downloadResult.blob();
@@ -38,7 +38,7 @@ const ProjectPage = ({ data }) => {
         tableLabels={projectData.tableLabels}
         buttonLabel={projectData.tableButtonLabel}
         file={projectData.tableFile.file}
-        onDownloadClick={openThankModal}
+        onDownloadClick={onDownloadClick}
       />
     </Layout>
   );
