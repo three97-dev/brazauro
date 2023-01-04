@@ -1,9 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
 
-import "./Slider.css";
+import "./StatisticSlider.css";
 
-const NewsSlider = ({ children }) => {
+const StatisticSlider = ({ children }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -20,11 +20,11 @@ const NewsSlider = ({ children }) => {
 
   return (
     <div>
-      <Slider {...settings} className="news-slider sm:px-6">
+      <Slider {...settings} className="statistic-slider sm:px-6">
         {children}
       </Slider>
     </div>
   );
 };
 
-export default NewsSlider;
+export default StatisticSlider;

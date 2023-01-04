@@ -42,15 +42,6 @@ const Careers = ({ data }) => {
         thirdNewsDescription={pageData.thirdNewsDescription.thirdNewsDescription}
         thirdNewsImage={pageData.thirdNewsImage}
       />
-      <JobFair
-        nextJobFairTitle={pageData.nextJobFairTitle}
-        nextJobFairDate={pageData.nextJobFairDate}
-        nextJobFairTime={pageData.nextJobFairTime}
-        nextJobFairAddress={pageData.nextJobFairAddress}
-        nextJobFairOther={pageData.nextJobFairOther}
-        nextJobFairLines={pageData.nextJobFairLines}
-        nextJobFairButton={pageData.nextJobFairButton}
-      />
       <OurOpenRoles
         roles={roles}
         title={pageData.openRolesTitle}
@@ -123,13 +114,6 @@ export const query = graphql`
           gatsbyImageData
           title
         }
-        nextJobFairTitle
-        nextJobFairDate
-        nextJobFairTime
-        nextJobFairAddress
-        nextJobFairOther
-        nextJobFairLines
-        nextJobFairButton
         openRolesTitle
         openRolesDescription {
           raw
