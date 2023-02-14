@@ -1,0 +1,19 @@
+.home-page-team-layout {
+  /* grid-auto-flow: column;
+  grid-template-columns:
+    67px
+    minmax(200px, auto)
+    120px
+  ; */
+}
+
+@media screen and (min-width: 1024px) {
+  .home-page-team-layout {
+    grid-auto-flow: column;
+    grid-template-columns:
+      minmax(200px, 1fr)
+      108px
+      minmax(200px, 1fr)
+    ;
+  }
+}

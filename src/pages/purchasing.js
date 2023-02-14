@@ -7,12 +7,10 @@ import SEO from "../components/seo";
 import RRenderer from "../components/richtextRenderer";
 import EmploymentStatistics from "../components/purchasing/EmploymentStatistics";
 import ProcurementStatistics from "../components/purchasing/ProcurementStatistics";
-import PurchasingCategories from "../components/purchasing/PurchasingCategories";
 
 const PurchasingPage = ({ data }) => {
   const purchasingPageData = data?.allContentfulPagePurchasing?.nodes[0];
   const procurementStatisticsData = data?.allContentfulProcurementStatistics.nodes;
-  const purchasingCategoriesData = data?.allContentfulPurchasingCategories.nodes;
 
   return (
     <Layout>
@@ -36,11 +34,11 @@ const PurchasingPage = ({ data }) => {
       />
       <ProcurementStatistics
         procurementStatisticsTitle={purchasingPageData.procurementStatisticsTitle}
+        procurementStatisticsImage={purchasingPageData.procurementStatisticsImage}
         lastUpdatedTitle={purchasingPageData.lastUpdatedTitle}
         procurementLastUpdatedDate={purchasingPageData.procurementLastUpdatedDate}
         procurementStatisticsData={procurementStatisticsData}
       />
-      <PurchasingCategories purchasingCategoriesData={purchasingCategoriesData} />
     </Layout>
   );
 };
@@ -78,6 +76,9 @@ export const query = graphql`
           employeesFromGmin
         }
         procurementStatisticsTitle
+        procurementStatisticsImage {
+          gatsbyImageData
+        }
         procurementLastUpdatedDate(formatString: "MM/DD/YYYY")
       }
     }
@@ -87,23 +88,9 @@ export const query = graphql`
     ) {
       nodes {
         location
+        totalPercentage
         itemsProcured {
           itemsProcured
-        }
-      }
-    }
-    allContentfulPurchasingCategories(filter: { node_locale: { eq: $language } }, sort: { fields: order, order: ASC }) {
-      nodes {
-        categoryName
-        itemsProcured {
-          itemName
-          description {
-            description
-          }
-          price
-          itemImage {
-            gatsbyImageData
-          }
         }
       }
     }

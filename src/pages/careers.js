@@ -7,7 +7,6 @@ import CreatedJobs from "../components/careers/CreatedJobs";
 import Communities from "../components/careers/Communities";
 import EmployerOfChoice from "../components/careers/EmployerOfChoice";
 import News from "../components/careers/News";
-import JobFair from "../components/careers/JobFair";
 import OurOpenRoles from "../components/careers/OurOpenRoles";
 import SEO from "../components/seo";
 
@@ -27,10 +26,7 @@ const Careers = ({ data }) => {
         jobsCreatedDuringOperation={pageData.jobsCreatedDuringOperation}
       />
       <Communities title={pageData.communitiesTitle} image={pageData.communitiesImage} />
-      <EmployerOfChoice
-        title={pageData.employerOfChoiceTitle}
-        description={pageData.employerOfChoiceDescription.employerOfChoiceDescription}
-      />
+      <EmployerOfChoice title={pageData.employerOfChoiceTitle} description={pageData.employerOfChoiceDescription} />
       <News
         firstNewsTitle={pageData.firstNewsTitle}
         firstNewsDescription={pageData.firstNewsDescription.firstNewsDescription}
@@ -71,6 +67,7 @@ export const query = graphql`
           gatsbyImageData
           title
         }
+        createdAt(formatString: "MM/DD/YYYY")
       }
     }
     allContentfulPageCareers(filter: { node_locale: { eq: $language } }) {
@@ -88,7 +85,7 @@ export const query = graphql`
         }
         employerOfChoiceTitle
         employerOfChoiceDescription {
-          employerOfChoiceDescription
+          raw
         }
         firstNewsTitle
         firstNewsDescription {

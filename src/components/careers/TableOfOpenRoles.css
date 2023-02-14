@@ -1,0 +1,16 @@
+.table-of-open-roles-row {
+  grid-auto-flow: column;
+  grid-template-columns:
+    67px
+    minmax(200px, auto);
+}
+
+@media screen and (min-width: 1024px) {
+  .table-of-open-roles-row {
+    grid-template-columns:
+      67px
+      minmax(200px, 607px)
+      200px
+      minmax(120px, auto);
+  }
+}

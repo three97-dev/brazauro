@@ -27,7 +27,7 @@ const EmploymentStatistics = ({
           <h3 className="mb-6">{companyBrmAndGmin.title}</h3>
           <div className="w-[280px] h-[280px] rounded-full p-10 mb-6 bg-very-light-gray">
             <div className="flex items-center justify-center w-[200px] h-[200px] rounded-full bg-pink">
-              <StaticImage src={"../../assets/purchasing/logo.png"} alt="logo icon" />
+              <StaticImage src={"../../assets/purchasing/building.png"} alt="Building icon" />
             </div>
           </div>
           <div className="grid gap-y-3">
@@ -72,7 +72,7 @@ const EmploymentStatistics = ({
             <h3 className="text-center mb-6">{companyBrmAndGmin.title}</h3>
             <div className="flex justify-center items-center mx-auto w-[200px] sm:w-[280px] h-[200px] sm:h-[280px] rounded-full mb-6 bg-very-light-gray">
               <div className="flex items-center justify-center w-[160px] sm:w-[200px] h-[160px] sm:h-[200px] rounded-full bg-pink">
-                <StaticImage src={"../../assets/purchasing/logo.png"} alt="logo icon" />
+                <StaticImage src={"../../assets/purchasing/building.png"} alt="Building icon" />
               </div>
             </div>
             <div className="grid gap-y-3 text-center">

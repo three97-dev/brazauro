@@ -5,14 +5,14 @@ import Layout from "../components/Layout";
 import HomeHero from "../components/homepage/HomeHero";
 import News from "../components/homepage/News";
 import MainServiceContract from "../components/homepage/MainServiceContract";
-import ExecutiveTeam from "../components/homepage/ExecutiveTeam";
 import SEO from "../components/seo";
+import Team from "../components/homepage/Team";
 
 const HomePage = ({ data }) => {
   const pageData = data?.allContentfulPageHomePage?.nodes[0];
   const newsData = data?.news?.nodes;
-  const executiveTeamData = data?.executiveTeam?.nodes;
-  const boardOfDirectorsData = data?.boardOfDirectors?.nodes;
+  const beloOfficeTeamMembersData = data?.beloOfficeTeamMembers?.nodes;
+  const tocantinzinhoSiteTeamMembersData = data?.tocantinzinhoSiteTeamMembers?.nodes;
 
   return (
     <Layout>
@@ -36,12 +36,12 @@ const HomePage = ({ data }) => {
         title={pageData.miningServicesTitle}
         description={pageData.miningServicesDescription}
       />
-      <ExecutiveTeam
-        executiveTeamTitle={pageData.executiveTeamTitle}
-        executiveTeamSubtitle={pageData.executiveTeamSubtitle}
-        executiveTeamData={executiveTeamData}
-        boardOfDirectorsSubtitle={pageData.boardOfDirectorsSubtitle}
-        boardOfDirectorsData={boardOfDirectorsData}
+      <Team
+        title={pageData.teamTitle}
+        leftOffice={pageData.teamLeftTitle}
+        leftTeamData={beloOfficeTeamMembersData}
+        rightOffice={pageData.teamRightTitle}
+        rightTeamData={tocantinzinhoSiteTeamMembersData}
       />
     </Layout>
   );
@@ -62,9 +62,9 @@ export const query = graphql`
         miningServicesDescription {
           raw
         }
-        executiveTeamTitle
-        executiveTeamSubtitle
-        boardOfDirectorsSubtitle
+        teamTitle
+        teamLeftTitle
+        teamRightTitle
       }
     }
     news: allContentfulHighlightCards(filter: { node_locale: { eq: $language } }, sort: { fields: order }) {
@@ -80,30 +80,22 @@ export const query = graphql`
         }
       }
     }
-    executiveTeam: allContentfulExecutiveTeam(filter: { node_locale: { eq: $language } }, sort: { fields: order }) {
-      nodes {
-        name
-        title
-        description {
-          raw
-        }
-        image {
-          title
-          gatsbyImageData
-        }
-      }
-    }
-    boardOfDirectors: allContentfulBoardOfDirectors(
+    beloOfficeTeamMembers: allContentfulBeloOfficeTeamMember(
       filter: { node_locale: { eq: $language } }
       sort: { fields: order }
     ) {
       nodes {
         name
         title
-        image {
-          gatsbyImageData
-          title
-        }
+      }
+    }
+    tocantinzinhoSiteTeamMembers: allContentfulTocantinzinhoSiteTeamMember(
+      filter: { node_locale: { eq: $language } }
+      sort: { fields: order }
+    ) {
+      nodes {
+        name
+        title
       }
     }
   }

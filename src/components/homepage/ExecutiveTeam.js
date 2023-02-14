@@ -5,8 +5,6 @@ import RRenderer from "../richtextRenderer";
 import BottomShape from "../basic/bottom-shape/BottomShape";
 import Slider from "./Slider";
 
-import subtract from "../../assets/subtract.svg";
-
 const ExecutiveTeamMember = ({ name, title, description, image }) => {
   return (
     <div className="flex flex-col items-center">
@@ -97,10 +95,7 @@ const ExecutiveTeam = ({ executiveTeamTitle, executiveTeamSubtitle, boardOfDirec
           ))}
         </Slider>
       </div>
-      <div className="w-full md:hidden">
-        <img className="w-full" src={subtract} />
-      </div>
-      <BottomShape className="hidden md:block" />
+      <BottomShape />
     </div>
   );
 };

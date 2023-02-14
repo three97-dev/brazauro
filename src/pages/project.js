@@ -30,6 +30,7 @@ const ProjectPage = ({ data }) => {
         aboutDescription={projectData.aboutDescription}
         historyTitle={projectData.projectHistoryTitle}
         projectHistory={projectData.projectHistory}
+        projectImage={projectData.projectImage}
       />
       {/* <Acquisition projectData={projectData} /> */}
       <FeasibilityTable
@@ -57,6 +58,9 @@ export const query = graphql`
         projectHistory {
           year
           description
+        }
+        projectImage {
+          gatsbyImageData
         }
         acquisitionTitle
         acquisitionDescription {

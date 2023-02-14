@@ -3,11 +3,9 @@ import React from "react";
 import RRenderer from "../richtextRenderer";
 
 import BottomShape from "../basic/bottom-shape/BottomShape";
-import OpenRole from "./OpenRole";
+import TableOfOpenRoles from "./TableOfOpenRoles";
 
-import subtract from "../../assets/subtract.svg";
-
-const OurOpenRoles = ({ roles, title, description, openRolesButtonLabel }) => { 
+const OurOpenRoles = ({ roles, title, description, openRolesButtonLabel }) => {
   return (
     <>
       <div className="relative w-full max-w-[1440px] mx-auto px-7 sm:px-12 lg:px-[100px] pt-5 md:pt-10 text-dark-gray">
@@ -17,28 +15,19 @@ const OurOpenRoles = ({ roles, title, description, openRolesButtonLabel }) => {
         <RRenderer
           data={description}
           config={{
-            p: "font-inter mb-12",
+            p: "font-inter mb-12 overflow-hidden text-ellipsis",
           }}
         />
-        <hr className="border border-gold mb-12" />
-        <div>
-          {roles.map((role) => (
-            <OpenRole
-              title={role.title}
-              description={role.description}
-              smallImage={role.smallImage}
-              largeImage={role.largeImage}
-              buttonLabel={openRolesButtonLabel}
-              pageUrl={role.fields.pageUrl}
-              hasBorder
-            />
-          ))}
-        </div>
+        <hr className="border border-gold mb-8" />
+        <TableOfOpenRoles
+          roles={roles}
+          buttonLabel={openRolesButtonLabel}
+          labelPositionAvailable="Position Available"
+          labelPostingDate="Posting Date"
+        />
+        <hr className="border border-gold my-8" />
       </div>
-      <div className="w-full md:hidden">
-        <img className="w-full" src={subtract} />
-      </div>
-      <BottomShape className="hidden md:block mt-24" />
+      <BottomShape className="mt-24" />
     </>
   );
 };
